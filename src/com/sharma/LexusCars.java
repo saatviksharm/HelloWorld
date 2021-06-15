@@ -23,16 +23,19 @@ public class LexusCars {
         } else {
             finalCost = baseCost;
         }
+        //System.out.println("Cost after color selection " + finalCost);
         if (pnumberofDoors == 2){
-            finalCost = baseCost + 2000;
+            finalCost += 2000;
         } else {
-            finalCost = baseCost + 1000;
+            finalCost += 1000;
         }
+        //System.out.println("Cost after door selection " + finalCost);
         if (pseatColor == "white"){
-            finalCost = baseCost + 500;
+            finalCost += 500;
         } else if (pseatColor == "Maroon" ){
-            finalCost = baseCost + 1000;
+            finalCost += 1000;
         }
+        //System.out.println("Cost after interior color selection " + finalCost);
         return finalCost;
     }
 
@@ -62,7 +65,7 @@ public class LexusCars {
         prashantsLexus.brake();
 
         LexusCars saatviksLexus = new LexusCars();
-        int saatviksLexusCost = saatviksLexus.setCarVariables("Red", 2, "Maroon");
+        int saatviksLexusCost = saatviksLexus.setCarVariables("red", 2, "Maroon");
         System.out.println("Cost of Saatviks car is " + saatviksLexusCost);
         //saatviksLexus.accelerate(100);
        // saatviksLexus.decelerate(35);
