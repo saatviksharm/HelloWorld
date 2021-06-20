@@ -1,13 +1,17 @@
 package com.sharma;
 
 public class UserCars {
+
+
     public static void main(String[] args) {
         LexusCars prashantsLexus = new LexusCars();
-        //prashantsLexus.setCarVariables("Silver", 4, "white");
-        prashantsLexus.accelerate(70);
-        prashantsLexus.decelerate(35);
-        prashantsLexus.changeGear(4);
+        prashantsLexus.setCarType("hybrid");
+        prashantsLexus.setModel("UX");
+        prashantsLexus.setSubModel("sport");
+        prashantsLexus.setDoors(4);
+        prashantsLexus.setCarColor("red");
+        prashantsLexus.setSeatColor("Maroon");
 
-        // write your code here
+        prashantsLexus.setCarDetailsAndCalculateCost();
     }
 }

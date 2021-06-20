@@ -2,48 +2,112 @@ package com.sharma;
 
 public class LexusCars {
 
-    private String color;
+    public String carType;
     public String model;
+    public String subModel;
+    private String carColor;
     public int doors;
+    public String seatColor;
 
-    public static int setCarVariables(String usercolor, int numberofDoors, String seatColor) {
-        int cost;
-        //int calculateCost = 0;
-        cost = calculateCost(usercolor, numberofDoors, seatColor);
+    public String getSeatColor() {
+        return seatColor;
+    }
+
+    public void setSeatColor(String seatColor) {
+        this.seatColor = seatColor;
+    }
+
+    public String getCarType() {
+        return carType;
+    }
+
+    public void setCarType(String carType) {
+        this.carType = carType;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public String getSubModel() {
+        return subModel;
+    }
+
+    public void setSubModel(String subModel) {
+        this.subModel = subModel;
+    }
+
+    public String getCarColor() {
+        return carColor;
+    }
+
+    public void setCarColor(String carColor) {
+        this.carColor = carColor;
+    }
+
+    public int getDoors() {
+        return doors;
+    }
+
+    public void setDoors(int doors) {
+        this.doors = doors;
+    }
+
+    public int setCarDetailsAndCalculateCost() {
+
         System.out.println("Inside Car.setCarVariables method");
-        System.out.println("Your car color is " + usercolor + " and your car has " +numberofDoors + " doors and seat color is " + seatColor);
+        System.out.println("Your car type is " +getCarType() + " and your car model is " +getModel() +
+                " Sub model is " + getSubModel() + " doors are " + getDoors() + " and seat color is " + getSeatColor());
+        int cost;
+        cost = calculateCost();
         return cost;
     }
 
-    private static int calculateCost(String pusercolor, int pnumberofDoors, String pseatColor) {
-        int baseCost = 10000;
+    private int calculateCost() {
+        int baseCost = 0;
+        if (carType == "hybrid") {
+            if (model == "UX") {
+                baseCost = 35200;
+                if (subModel == "sport") {
+                    baseCost = baseCost + 2000;
+                }
+            } else if (model == "NX") {
+                baseCost = 40160;
+            } else if (model == "LC") {
+                baseCost = 97610;
+            }
+        }
         int finalCost;
-        if (pusercolor == "red"){
+        if (carColor == "red"){
             finalCost = baseCost + 1000;
         } else {
             finalCost = baseCost;
         }
         //System.out.println("Cost after color selection " + finalCost);
-        if (pnumberofDoors == 2){
+        if (doors == 2){
             finalCost += 2000;
         } else {
             finalCost += 1000;
         }
         //System.out.println("Cost after door selection " + finalCost);
-        if (pseatColor == "white"){
+        if (seatColor == "white"){
             finalCost += 500;
-        } else if (pseatColor == "Maroon" ){
+        } else if (seatColor == "Maroon" ){
             finalCost += 1000;
         }
-        //System.out.println("Cost after interior color selection " + finalCost);
+        System.out.println("Cost after interior color selection " + finalCost);
         return finalCost;
     }
 
-    public static void accelerate(int accelerateSpeed) {
+    public void accelerate(int accelerateSpeed) {
         System.out.println("Accelarating to speed " + accelerateSpeed);
     }
 
-    public static void decelerate(int decelerateSpeed) {
+    public void decelerate(int decelerateSpeed) {
         System.out.println("Decelerating to speed " + decelerateSpeed);
     }
 
@@ -51,27 +115,8 @@ public class LexusCars {
         System.out.println("Braking");
     }
 
-    public static void changeGear(int gear) {
+    public void changeGear(int gear) {
         System.out.println("Changing gear to " + gear);
-    }
-
-    public static void main(String[] args) {
-        LexusCars prashantsLexus = new LexusCars();
-        int prashantsLexusCost = prashantsLexus.setCarVariables("Silver", 4, "white");
-        System.out.println("Cost of Prashants car is " + prashantsLexusCost);
-        //prashantsLexus.accelerate(70);
-       //prashantsLexus.decelerate(35);
-        //prashantsLexus.changeGear(4);
-        prashantsLexus.brake();
-
-        LexusCars saatviksLexus = new LexusCars();
-        int saatviksLexusCost = saatviksLexus.setCarVariables("red", 2, "Maroon");
-        System.out.println("Cost of Saatviks car is " + saatviksLexusCost);
-        //saatviksLexus.accelerate(100);
-       // saatviksLexus.decelerate(35);
-        //saatviksLexus.changeGear(5);
-
-        // write your code here
     }
 
 }
