@@ -8,6 +8,30 @@ public class LexusCars {
     private String carColor;
     public int doors;
     public String seatColor;
+    public boolean sunroof;
+    public String present;
+
+    public String getPresent() {
+        return present;
+    }
+
+    public void setPresent(String present) {
+        this.present = present;
+    }
+
+    public boolean getSunroof() {
+        return sunroof;
+    }
+
+    public void setSunroof(boolean sunroof) {
+        this.sunroof = sunroof;
+        /*if (sunroof == true) {
+            setPresent("have");
+        } else {
+            setPresent("dont have");
+        }*/
+    }
+
 
     public String getSeatColor() {
         return seatColor;
@@ -60,10 +84,11 @@ public class LexusCars {
     public int setCarDetailsAndCalculateCost() {
 
         System.out.println("Inside Car.setCarVariables method");
-        System.out.println("Your car type is " +getCarType() + " and your car model is " +getModel() +
-                " Sub model is " + getSubModel() + " doors are " + getDoors() + " and seat color is " + getSeatColor());
         int cost;
         cost = calculateCost();
+        System.out.println("Your car type is " +getCarType() + " and your car model is " +getModel() +
+                " Sub model is " + getSubModel() + " doors are " + getDoors() + " seat color is " + getSeatColor() +
+                " and you " + getPresent() + " a sunroof.");
         return cost;
     }
 
@@ -75,10 +100,22 @@ public class LexusCars {
                 if (subModel == "sport") {
                     baseCost = baseCost + 2000;
                 }
+                if (subModel == "luxury") {
+                    baseCost = baseCost + 2500;
+                }
             } else if (model == "NX") {
                 baseCost = 40160;
-            } else if (model == "LC") {
-                baseCost = 97610;
+                if (subModel == "sport") {
+                    baseCost = baseCost + 950;
+                }
+                if (subModel == "luxury") {
+                    baseCost = baseCost + 6450;
+                }
+            } else if (model == "RX") {
+                baseCost = 47920;
+                if (subModel == "sport") {
+                    baseCost = baseCost + 3480;
+                }
             }
         }
         int finalCost;
@@ -99,8 +136,17 @@ public class LexusCars {
         } else if (seatColor == "Maroon" ){
             finalCost += 1000;
         }
+        if(sunroof==true){
+            finalCost+=1500;
+            setPresent("have");
+        }else{
+            finalCost=finalCost;
+            setPresent("dont have");
+
+        }
         System.out.println("Cost after interior color selection " + finalCost);
         return finalCost;
+
     }
 
     public void accelerate(int accelerateSpeed) {
