@@ -17,7 +17,7 @@ public class Calculator {
     }
 
     public static void divide2Numbers(int number1, int number2){
-       int quo = number1 / number2;
+        int quo = number1 / number2;
         System.out.println("Quotient of 2 numbers is " + quo);
     }
 

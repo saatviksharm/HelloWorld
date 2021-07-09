@@ -1,6 +1,6 @@
 package com.sharma;
 
-public class LexusCars {
+public class LexusCar {
 
     public String carType;
     public String model;
